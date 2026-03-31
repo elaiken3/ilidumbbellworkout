@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20-Min Dumbbell Routine</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'DM Sans', Georgia, sans-serif;
+  }
+
+  .card {
+    background-color: #ede8e1;
+    width: 100%;
+    max-width: 620px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  }
+
+  .header {
+    background-color: #0d0d0d;
+    padding: 36px 36px 28px 36px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #f5f2ee;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .title-accent { color: #c8a96e; }
+
+  .meta {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-size: 12px;
+    color: rgba(245,242,238,0.5);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background-color: #c8a96e;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .format-bar {
+    background-color: #c8a96e;
+    padding: 16px 36px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+  }
+
+  .format-cell {
+    padding-right: 24px;
+    margin-right: 24px;
+    border-right: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .format-cell:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+
+  .format-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.55);
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  .format-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: #0d0d0d;
+    display: block;
+  }
+
+  .exercises {
+    background-color: #ede8e1;
+    padding: 28px 36px 4px 36px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #6b6560;
+    margin-bottom: 22px;
+    display: block;
+  }
+
+  .exercise {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .ex-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #d4be8f;
+    line-height: 1;
+    min-width: 36px;
+    text-align: center;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .ex-body { flex: 1; }
+
+  .ex-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .ex-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0d0d0d;
+  }
+
+  .ex-target {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ex-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: #4a4540;
+    line-height: 1.65;
+    margin-bottom: 9px;
+  }
+
+  a.ex-link {
+    font-size: 11px;
+    font-weight: 500;
+    color: #c0392b;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .rule {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin: 0 0 22px 0;
+  }
+
+  .tips {
+    background-color: #0d0d0d;
+    padding: 28px 36px;
+  }
+
+  .tips-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .tip {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(245,242,238,0.7);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .tip-dash { color: #c8a96e; flex-shrink: 0; }
+
+  .footer {
+    background-color: #ede8e1;
+    padding: 18px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .footer-note { font-size: 11px; color: #6b6560; font-weight: 300; }
+
+  .footer-badge {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #c8a96e;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="header">
+    <span class="eyebrow">Full Body &middot; Strength &amp; Muscle</span>
+    <span class="title">20-Minute<br>Dumbbell <span class="title-accent">Routine</span></span>
+    <div class="meta">
+      <div class="meta-item"><span class="dot"></span> Adjustable Dumbbells Only</div>
+      <div class="meta-item"><span class="dot"></span> 3&times; Per Week</div>
+      <div class="meta-item"><span class="dot"></span> Beginner Friendly</div>
+    </div>
+  </div>
+
+  <div class="format-bar">
+    <div class="format-cell">
+      <span class="format-label">Format</span>
+      <span class="format-value">5 exercises &middot; 3 rounds</span>
+    </div>
+    <div class="format-cell">
+      <span class="format-label">Work</span>
+      <span class="format-value">40 sec on</span>
+    </div>
+    <div class="format-cell">
+      <span class="format-label">Rest</span>
+      <span class="format-value">20 sec off</span>
+    </div>
+    <div class="format-cell">
+      <span class="format-label">Start Weight</span>
+      <span class="format-value">8 &ndash; 12 lbs</span>
+    </div>
+  </div>
+
+  <div class="exercises">
+    <span class="section-label">The Exercises</span>
+
+    <div class="exercise">
+      <div class="ex-number">1</div>
+      <div class="ex-body">
+        <div class="ex-header">
+          <span class="ex-name">Goblet Squat</span>
+          <span class="ex-target">Legs &middot; Glutes</span>
+        </div>
+        <p class="ex-desc">Hold one dumbbell vertically at your chest. Feet shoulder-width apart, squat down like sitting into a chair &mdash; chest up, knees tracking over toes.</p>
+        <a class="ex-link" href="https://www.youtube.com/results?search_query=goblet+squat+for+beginners" target="_blank">&#9654; Watch: Goblet Squat for Beginners</a>
+      </div>
+    </div>
+    <hr class="rule">
+
+    <div class="exercise">
+      <div class="ex-number">2</div>
+      <div class="ex-body">
+        <div class="ex-header">
+          <span class="ex-name">Romanian Deadlift</span>
+          <span class="ex-target">Hamstrings &middot; Lower Back</span>
+        </div>
+        <p class="ex-desc">Hold dumbbells in front of your thighs. Hinge at the hips &mdash; sending them back &mdash; while lowering the weights down your legs. Feel the stretch, then drive hips forward to stand.</p>
+        <a class="ex-link" href="https://www.youtube.com/results?search_query=dumbbell+romanian+deadlift+beginner+form" target="_blank">&#9654; Watch: Dumbbell RDL for Beginners</a>
+      </div>
+    </div>
+    <hr class="rule">
+
+    <div class="exercise">
+      <div class="ex-number">3</div>
+      <div class="ex-body">
+        <div class="ex-header">
+          <span class="ex-name">Bent-Over Row</span>
+          <span class="ex-target">Back &middot; Biceps</span>
+        </div>
+        <p class="ex-desc">Hinge forward at the hips, back flat. Pull the dumbbells up toward your hips, squeezing your shoulder blades together. Builds posture and pulling strength.</p>
+        <a class="ex-link" href="https://www.youtube.com/results?search_query=dumbbell+bent+over+row+beginner+form" target="_blank">&#9654; Watch: Bent-Over Row Form</a>
+      </div>
+    </div>
+    <hr class="rule">
+
+    <div class="exercise">
+      <div class="ex-number">4</div>
+      <div class="ex-body">
+        <div class="ex-header">
+          <span class="ex-name">Shoulder Press</span>
+          <span class="ex-target">Shoulders &middot; Triceps</span>
+        </div>
+        <p class="ex-desc">Seated or standing, dumbbells at shoulder height with palms forward. Press straight up until arms are extended, then lower slowly and with control.</p>
+        <a class="ex-link" href="https://www.youtube.com/results?search_query=dumbbell+overhead+shoulder+press+beginner" target="_blank">&#9654; Watch: Dumbbell Shoulder Press</a>
+      </div>
+    </div>
+    <hr class="rule">
+
+    <div class="exercise">
+      <div class="ex-number">5</div>
+      <div class="ex-body">
+        <div class="ex-header">
+          <span class="ex-name">Floor Chest Press</span>
+          <span class="ex-target">Chest &middot; Triceps</span>
+        </div>
+        <p class="ex-desc">Lie on the floor, dumbbells at chest height, elbows at ~45 degrees. Press up, lower slowly. The floor limits range of motion &mdash; joint-friendly and perfect for beginners.</p>
+        <a class="ex-link" href="https://www.youtube.com/results?search_query=dumbbell+floor+press+beginner" target="_blank">&#9654; Watch: Floor Press for Beginners</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tips">
+    <span class="tips-label">Key Tips</span>
+    <div class="tip"><span class="tip-dash">&mdash;</span> The slow lowering phase is where muscle is built. Don't rush it.</div>
+    <div class="tip"><span class="tip-dash">&mdash;</span> Rest 60&ndash;90 seconds between rounds if needed, especially at first.</div>
+    <div class="tip"><span class="tip-dash">&mdash;</span> After 2 weeks, if 3 rounds feels easy &mdash; add 2.5&ndash;5 lbs or a 4th round.</div>
+    <div class="tip"><span class="tip-dash">&mdash;</span> Form first, weight second. Always.</div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-note">3 days/week &middot; rest at least 1 day between sessions</span>
+    <span class="footer-badge">Built to be Strong</span>
+  </div>
+
+</div>
+
+</body>
+</html>
